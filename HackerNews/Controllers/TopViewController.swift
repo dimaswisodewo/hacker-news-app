@@ -76,7 +76,7 @@ class TopViewController: UIViewController {
                 // Reload table view in main thread
                 DispatchQueue.main.async { [weak self] in
                     self?.topTable.reloadData()
-                    if i == maxIndex {
+                    if self?.displayedStories.count == maxIndex + 1 {
                         self?.isUpdating = false
                     }
                 }
