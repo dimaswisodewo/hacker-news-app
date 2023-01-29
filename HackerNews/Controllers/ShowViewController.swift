@@ -40,14 +40,16 @@ class ShowViewController: UIViewController {
         showTable.frame = view.bounds
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        // Show tab bar
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         // Set to large title
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Show Stories"
         self.navigationController?.navigationBar.sizeToFit()
-        
-        // Show tab bar
-        tabBarController?.tabBar.isHidden = false
     }
     
     // Fetch show stories data
