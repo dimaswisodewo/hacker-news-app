@@ -60,7 +60,7 @@ class ShowViewController: UIViewController {
     private func updateDisplayedData() {
         print("UpdateDisplayedData")
         // Get max index
-        let maxIndex = (lastItemIndex + limit) <= storyIds.count ? (lastItemIndex + limit) : (storyIds.count - 1)
+        let maxIndex = (lastItemIndex + limit) <= (storyIds.count - 1) ? (lastItemIndex + limit) : (storyIds.count - 1)
         
         isUpdating = true
         
