@@ -23,6 +23,9 @@ class DetailViewController: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide tab bar
+        tabBarController?.tabBar.isHidden = true
+        
         guard let safeUrl = url else { return }
         let myURL = URL(string: safeUrl)
         let myRequest = URLRequest(url: myURL!)

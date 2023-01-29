@@ -45,6 +45,9 @@ class ShowViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Show Stories"
         self.navigationController?.navigationBar.sizeToFit()
+        
+        // Show tab bar
+        tabBarController?.tabBar.isHidden = false
     }
     
     // Fetch show stories data

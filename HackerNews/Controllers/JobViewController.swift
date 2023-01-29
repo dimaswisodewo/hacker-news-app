@@ -45,6 +45,9 @@ class JobViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Job Stories"
         self.navigationController?.navigationBar.sizeToFit()
+        
+        // Show tab bar
+        tabBarController?.tabBar.isHidden = false
     }
     
     // Fetch job stories data

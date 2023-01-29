@@ -45,6 +45,9 @@ class AskViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Ask Stories"
         self.navigationController?.navigationBar.sizeToFit()
+        
+        // Show tab bar
+        tabBarController?.tabBar.isHidden = false
     }
     
     // Fetch ask stories data
