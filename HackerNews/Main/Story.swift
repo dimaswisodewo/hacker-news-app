@@ -2,7 +2,7 @@
 //  Story.swift
 //  HackerNews
 //
-//  Created by Dimas Wisodewo on 28/01/23.
+//  Created by Khushnidjon on 14/02/23.
 //
 
 import Foundation
