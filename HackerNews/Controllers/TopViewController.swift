@@ -8,13 +8,14 @@
 import UIKit
 
 class TopViewController: UIViewController {
-
+    
     var storyIds: [Int] = []
     var displayedStories: [Story] = []
     
     let limit = 20
     var lastItemIndex = -1
     var isUpdating = false
+    var isAllDataDisplayed = false
     
     // Create table view
     private let topTable: UITableView = {
@@ -34,7 +35,7 @@ class TopViewController: UIViewController {
         
         fetchTopStories()
     }
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         topTable.frame = view.bounds
@@ -63,14 +64,20 @@ class TopViewController: UIViewController {
     
     // Get story data and update to UI
     private func updateDisplayedData() {
+        let firstIndex = lastItemIndex + 1
+        if (firstIndex > storyIds.count - 1) {
+            print("All data already displayed")
+            isAllDataDisplayed = true
+            return
+        }
         print("UpdateDisplayedData")
+        
         // Get max index
         let maxIndex = (lastItemIndex + limit) <= (storyIds.count - 1) ? (lastItemIndex + limit) : (storyIds.count - 1)
-        
         isUpdating = true
         
         // Fetch API
-        for i in lastItemIndex+1...maxIndex {
+        for i in firstIndex...maxIndex {
             print("get data ke-\(i)")
             // Get story data by id and add it inside stories array
             APICaller.shared.getStoryById(id: storyIds[i]) { story in
@@ -105,7 +112,7 @@ extension TopViewController: UITableViewDelegate, UITableViewDataSource {
     
     // Update displayed data when reaching the last item
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if (indexPath.row >= lastItemIndex && !isUpdating) {
+        if (!isAllDataDisplayed && indexPath.row >= lastItemIndex && !isUpdating) {
             updateDisplayedData()
         }
     }
