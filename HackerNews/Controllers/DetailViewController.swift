@@ -9,9 +9,6 @@ import UIKit
 import WebKit
 
 class DetailViewController: UIViewController, WKUIDelegate {
-    
-    static let shared: DetailViewController = DetailViewController()
-    
     var url: String?
     private var webView: WKWebView!
         
