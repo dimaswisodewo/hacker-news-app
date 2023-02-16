@@ -123,7 +123,7 @@ extension TopViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         // Open webview if the url exist
         guard let safeUrl = displayedStories[indexPath.row].url else { return }
-        let webView = DetailViewController()
+        let webView = DetailViewController.shared
         webView.url = safeUrl
         navigationController?.pushViewController(webView, animated: true)
     }
